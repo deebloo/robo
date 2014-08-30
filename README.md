@@ -1,4 +1,4 @@
-TOBO
+ROBO
 ==========
 
 Small HTML5 game made with Phaser.io.
