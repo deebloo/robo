@@ -1,10 +1,10 @@
 var stageHeight = 500, stageWidth = 800;
 
-var player,
-  star,
-  star2,
-  cursors,
-  bg,
+var player = null,
+  star = null,
+  star2 = null,
+  cursors = null,
+  bg = null,
   count = 0,
   playerVelocity = 250,
   starVelocity = 350;

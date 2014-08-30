@@ -8,49 +8,56 @@
  */
 function MovePlayer(player, velocityX, velocityY, animations)
 {
-  if (cursors.left.isDown)
+  /**
+   * @name Has Animation
+   * @param dir STRING direct of animation
+   * @returns BOOL
+   */
+  function hasAnimation(dir)
+  {
+    if(player.animations && animations && animations[dir])
+    {
+      return player.animations.play(animations[dir]);
+    }
+  }
+
+  function key(dir)
+  {
+    return cursors[dir].isDown;
+  }
+
+  if (key('left'))
   {
     // Move player left
     player.body.velocity.x = -velocityX;
 
-    if(player.animations && animations && animations.left) {
-      player.animations.play(animations.left);
-    }
+    hasAnimation('left');
   }
-  else if (cursors.right.isDown)
+  else if (key('right'))
   {
     // Move player right
     player.body.velocity.x = velocityX;
 
-    if(player.animations && animations && animations.right) {
-      player.animations.play(animations.right);
-    }
+    hasAnimation('right');
   }
-  else {
-    // Stand still
-    if(player.animations && animations && animations.idle) {
-      player.animations.play(animations.idle);
-    }
+  else
+  {
+    // Idle animation
+    hasAnimation('idle');
   }
 
-  if (cursors.up.isDown)
+  if (key('up'))
   {
     // Move player up
     player.body.velocity.y = -velocityY;
 
-    // Stand still
-    if(player.animations && animations && animations.up) {
-      player.animations.play(animations.up);
-    }
+    hasAnimation('up');
   }
-  else if (cursors.down.isDown)
+  else if (key('down'))
   {
     // Move player down
     player.body.velocity.y = velocityY;
 
-    // Stand still
-    if(player.animations && animations && animations.down) {
-      player.animations.play(animations.down);
-    }
+    hasAnimation('down');
   }
 }
