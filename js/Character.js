@@ -11,6 +11,8 @@ var Character = (function()
    */
   function Character(posX, posY, asset, physics, world)
   {
+
+    // Create the character from the given sprite
     this.character = game.add.sprite(posX, posY, asset);
 
     // Enable arcade physics for player
@@ -18,12 +20,12 @@ var Character = (function()
       game.physics.arcade.enable(this.character);
     }
 
-    console.log(asset, world);
-
     // Set character collision with the world bounds
     this.character.body.collideWorldBounds = world;
 
+    // Return the character
     return this.character;
+
   }
 
   return Character

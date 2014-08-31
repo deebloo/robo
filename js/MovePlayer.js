@@ -4,9 +4,10 @@
  * @param velocityX Int
  * @param velocityY Int
  * @param animations Animation Names {left: 'left', right: 'right'}
+ * @param cursors The game controls to use
  * @description Move player up, down, left, or right with give animations. (Call this in your Update function)
  */
-function MovePlayer(player, velocityX, velocityY, animations)
+function MovePlayer(player, cursors, velocityX, velocityY, animations)
 {
   /**
    * @name Has Animation
