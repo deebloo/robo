@@ -20,10 +20,16 @@ var Main_State = {
    */
   preload: function()
   {
-    // Load Assets
+    // Load Robot
     game.load.spritesheet('robot', 'assets/robot.png', 55, 100);
+
+    // Load Star
     game.load.image('star', 'assets/star.png');
+
+    // Load background
     game.load.image('background', 'assets/bg.jpg');
+
+    // Load spaceship
     game.load.image('spaceShip', 'assets/SpaceShipSmall.png');
   },
 
@@ -41,7 +47,7 @@ var Main_State = {
     this.bg.scale.setTo(.45,.45);
 
     // Create the star 'Character'
-    this.star = new Character(globals.stageWidth, Math.floor((Math.random() * globals.stageHeight) + 1), 'star', true, false);
+    this.star = new Character(game.width, Math.floor((Math.random() * game.height) + 1), 'star', true, false);
 
     // Check to see if the star is in the world
     this.star.checkWorldBounds = true;
@@ -50,18 +56,18 @@ var Main_State = {
     this.star.events.onOutOfBounds.add(function()
     {
 
-      this.star.reset(globals.stageWidth, Math.floor((Math.random() * globals.stageHeight) + 1));
+      this.star.reset(game.width, Math.floor((Math.random() * game.height) + 1));
 
     }.bind(this));
 
-    this.spaceShip = new Character(Math.floor((Math.random() * globals.stageWidth) + 1), -68, 'spaceShip', true, false);
+    this.spaceShip = new Character(Math.floor((Math.random() * game.width) + 1), -68, 'spaceShip', true, false);
 
     this.spaceShip.checkWorldBounds = true;
 
     this.spaceShip.events.onOutOfBounds.add(function()
     {
 
-      this.spaceShip.reset(Math.floor((Math.random() * globals.stageWidth) + 1), -50);
+      this.spaceShip.reset(Math.floor((Math.random() * game.width) + 1), -50);
 
     }.bind(this));
 
@@ -175,7 +181,7 @@ var Main_State = {
     this.text.setText("Score: " + this.score);
 
     // Reset the star position
-    this.star.reset(globals.stageWidth, Math.floor((Math.random() * globals.stageHeight) + 1));
+    this.star.reset(game.width, Math.floor((Math.random() * game.height) + 1));
 
   },
 

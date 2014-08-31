@@ -3,7 +3,7 @@
  *
  */
 // Initiate Game
-var game = new Phaser.Game(globals.stageWidth, globals.stageHeight, Phaser.AUTO, '');
+var game = new Phaser.Game(800, 500, Phaser.AUTO, '');
 
 // Add the Main game state
 game.state.add('main', Main_State);
