@@ -157,7 +157,6 @@ var Main_State = {
       // If the spaceship has not yet been initialized
       if(this.spaceShipVelocity === 0) {
 
-        alert('Start the space ship');
         // Increase the spaceships velocity
         this.spaceShipVelocity += 150
 
@@ -165,8 +164,6 @@ var Main_State = {
       // Else upp the space ships velocity by 25
       else
       {
-
-        alert('update the ship');
 
         this.spaceShipVelocity += 25
 
