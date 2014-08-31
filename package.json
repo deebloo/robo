@@ -1,0 +1,26 @@
+{
+  "name": "Robo",
+  "version": "0.0.0",
+  "description": "Small HTML5 game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DannyBlueDesign/robo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DannyBlueDesign/robo/issues"
+  },
+  "homepage": "https://github.com/DannyBlueDesign/robo",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-concat": "^2.3.4",
+    "gulp-useref": "^1.0.1",
+    "install": "^0.1.7",
+    "npm": "^2.0.0-beta.0"
+  }
+}

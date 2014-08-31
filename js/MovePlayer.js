@@ -13,7 +13,7 @@ function MovePlayer(player, velocityX, velocityY, animations)
    * @param dir STRING direct of animation
    * @returns BOOL
    */
-  function hasAnimation(dir)
+  function animate(dir)
   {
     if(player.animations && animations && animations[dir])
     {
@@ -21,29 +21,38 @@ function MovePlayer(player, velocityX, velocityY, animations)
     }
   }
 
+  /**
+   * @name key
+   * @param dir STRING direction of animation
+   * @returns Object
+   */
   function key(dir)
   {
     return cursors[dir].isDown;
   }
 
+  /**
+   * Check to see if one of the directional keys have been pressed
+   * and move the character and play the animation in the correct direction
+   */
   if (key('left'))
   {
     // Move player left
     player.body.velocity.x = -velocityX;
 
-    hasAnimation('left');
+    animate('left');
   }
   else if (key('right'))
   {
     // Move player right
     player.body.velocity.x = velocityX;
 
-    hasAnimation('right');
+    animate('right');
   }
   else
   {
     // Idle animation
-    hasAnimation('idle');
+    animate('idle');
   }
 
   if (key('up'))
@@ -51,13 +60,13 @@ function MovePlayer(player, velocityX, velocityY, animations)
     // Move player up
     player.body.velocity.y = -velocityY;
 
-    hasAnimation('up');
+    animate('up');
   }
   else if (key('down'))
   {
     // Move player down
     player.body.velocity.y = velocityY;
 
-    hasAnimation('down');
+    animate('down');
   }
 }
