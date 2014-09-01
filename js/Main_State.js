@@ -13,6 +13,7 @@ var Main_State = {
   spaceShip: null,
   player: null,
   cursors: null,
+  scrollSpeed: 1,
 
   /**
    * @name PRELOAD
@@ -41,10 +42,8 @@ var Main_State = {
   {
 
     // Add background sprite
-    this.bg = game.add.sprite(0, 0, 'background');
+    this.bg = game.add.tileSprite(0, 0, game.stage.bounds.width, game.height, 'background');
 
-    // Scale the background
-    this.bg.scale.setTo(.45,.45);
 
     // Create the star 'Character'
     this.star = new Character(game.width, Math.floor((Math.random() * game.height) + 1), 'star', true, false);
@@ -99,9 +98,11 @@ var Main_State = {
    */
   update: function()
   {
+    this.bg.tilePosition.x -= this.scrollSpeed;
 
     // Reset the player velocity
     this.player.body.velocity.x = 0;
+
     this.player.body.velocity.y = 0;
 
     this.spaceShip.body.velocity.y = this.spaceShipVelocity;
@@ -150,6 +151,8 @@ var Main_State = {
     // If score saver is > 10
     if(this.scoreSaver >= 10)
     {
+      // Up scroll speed
+      this.scrollSpeed += 2;
 
       // Reset the score saver
       this.scoreSaver = 0;
@@ -161,13 +164,14 @@ var Main_State = {
       this.playerVelocity += 50;
 
       // If the spaceship has not yet been initialized
-      if(this.spaceShipVelocity === 0) {
+      if(this.spaceShipVelocity === 0)
+      {
 
         // Increase the spaceships velocity
         this.spaceShipVelocity += 150
 
       }
-      // Else upp the space ships velocity by 25
+      // Else up the space ships velocity by 25
       else
       {
 
